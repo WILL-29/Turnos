@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Turnos.csproj": {}
+    "C:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Turnos.csproj": {}
   },
   "projects": {
-    "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Turnos.csproj": {
+    "C:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Turnos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Turnos.csproj",
+        "projectUniqueName": "C:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Turnos.csproj",
         "projectName": "Turnos",
-        "projectPath": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Turnos.csproj",
+        "projectPath": "C:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Turnos.csproj",
         "packagesPath": "C:\\Users\\WILL\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\obj\\",
+        "outputPath": "C:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -42,6 +42,14 @@
         "netcoreapp3.1": {
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.1, )"
             }

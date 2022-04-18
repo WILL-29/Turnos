@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 namespace Turnos.Models
 {
-    public class TurnosConext : DbContext
+    public class TurnosContext : DbContext
     {
-        public TurnosConext(DbContextOptions<TurnosConext> opciones)
+        public TurnosContext(DbContextOptions<TurnosContext> opciones)
         : base(opciones)
         {
         }        

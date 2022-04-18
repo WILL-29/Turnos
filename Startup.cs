@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Turnos.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Turnos
 {
@@ -24,6 +26,7 @@ namespace Turnos
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<TurnosContext>(opciones => opciones.UseSqlServer(Configuration.GetConnectionString("TurnosContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
