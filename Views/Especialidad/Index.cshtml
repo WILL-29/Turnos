@@ -2,26 +2,24 @@
 <!DOCTYPE html>
 <html>
     <head> 
+        @*Aquí se hacen los comentarios*@
         <title>Primera Vista Especialidades</title>    
     </head>
     <body>
         <table>
             <thead>
                 <tr>
-                    <th>@Html.DisplayNameFor(w => w.Descripcion)</th> 
+                    <th>@Html.DisplayNameFor(Model => Model.Descripcion)</th> 
                 </tr>
             </thead>
             <tbody>
-                @*Aquí va un comentario*@
-                @foreach (var item in Model)
+                @foreach (var i in Model)
                 {
                 <tr> 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Descripcion)
-                    </td>
+                    @*asdf no sirve para nada, pero la función Lamda necesita un primer parámetro obligatoriamente, aquí solo usamos i*@
+                    <td>@Html.DisplayFor(asdf => i.Descripcion)</td>
                 </tr> 
-                }
-              
+                }                          
             </tbody>
         </table>
     </body>
