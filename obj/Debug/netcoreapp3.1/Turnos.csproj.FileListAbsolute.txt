@@ -100,3 +100,4 @@ C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Turnos.Views
 C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Turnos.csproj.CopyComplete
 C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Turnos.dll
 C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Turnos.pdb
+C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\Especialidad\Edit.cshtml.g.cs

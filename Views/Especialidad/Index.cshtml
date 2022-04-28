@@ -17,7 +17,12 @@
                 {
                 <tr> 
                     @*asdf no sirve para nada, pero la función Lamda necesita un primer parámetro obligatoriamente, aquí solo usamos i*@
-                    <td>@Html.DisplayFor(asdf => i.Descripcion)</td>
+                    <td>
+                        @Html.DisplayFor(asdf => i.Descripcion)
+                    </td> 
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@i.ID_Especialidad">Editar</a>
+                    </td>
                 </tr> 
                 }                          
             </tbody>

@@ -30,7 +30,7 @@ namespace Turnos.Controllers
             return View(especialidad);
         }
         [HttpPost]
-        public IActionResult Edit(int id, [Bind("Id_Especialidad,Descripcion")] Especialidad especialidad)
+        public IActionResult Edit(int id, [Bind("ID_Especialidad,Descripcion")] Especialidad especialidad)
         {
             if (id != especialidad.ID_Especialidad)
             {
