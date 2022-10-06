@@ -4922,11 +4922,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Turnos.csproj",
+      "projectUniqueName": "C:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Turnos.csproj",
       "projectName": "Turnos",
-      "projectPath": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Turnos.csproj",
+      "projectPath": "C:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Turnos.csproj",
       "packagesPath": "C:\\Users\\WILL\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\obj\\",
+      "outputPath": "C:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -27,7 +27,7 @@ namespace Turnos.Controllers
             {
                 return NotFound();
             }
-            var especialidad = awaitt _contexto.Especialidades.FindAsync(id);
+            var especialidad = await _contexto.Especialidades.FindAsync(id);
             if (especialidad == null) //Esta validación es por si nos pasan el parámetro, pero este ID no existe en la base de datos
             {
                 return NotFound();
@@ -58,7 +58,6 @@ namespace Turnos.Controllers
                     return NotFound();
                 }
             var especialidad = await _contexto.Especialidades.FirstOrDefaultAsync(w => w.ID_Especialidad == id);
-
             if (especialidad == null)
             {
                 return NotFound();
@@ -69,7 +68,7 @@ namespace Turnos.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            var especialidad = _contexto.Especialidades.FirstOrDefaultAsync(w => w.ID_Especialidad == id);
+            var especialidad = await _contexto.Especialidades.FirstOrDefaultAsync(w => w.ID_Especialidad == id);
             _contexto.Especialidades.Remove(especialidad);
             await _contexto.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
