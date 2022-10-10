@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Turnos.Models;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;         //Esta referencia nos permite heredar de la clase Controller
+using Microsoft.EntityFrameworkCore;    //Esta referencia nos permite usar métodos como el ToListAsync y otros
+using Turnos.Models;                    //Esta referencia nos permite acceder a los modelos que creamos (Como el modelo Especialidad)
+using System.Linq;          
+using System.Threading.Tasks;           //Para métodos asíncronos
 namespace Turnos.Controllers
 {
     public class EspecialidadController : Controller
