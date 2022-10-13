@@ -1,0 +1,60 @@
+@model IEnumerable<Turnos.Models.Paciente>
+
+<p>
+    <a asp-action="Create">Nuevo</a>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(modelo => modelo.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(modelo => modelo.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(modelo => modelo.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(modelo => modelo.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(modelo => modelo.Email)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(cosa => p.Nombre);
+                </td>
+                <td>
+                    @Html.DisplayFor(cosa => p.Apellido);
+                </td>
+                <td>
+                    @Html.DisplayFor(cosa => p.Direccion);
+                </td>
+                <td>
+                    @Html.DisplayFor(cosa => p.Telefono);
+                </td>
+                <td>
+                    @Html.DisplayFor(cosa => p.Email);
+                </td>
+                <td>
+                    @Html.DisplayFor(cosa => p.Nombre);
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id=@p.ID_Paciente>Detalle</a>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id=@p.ID_Paciente>Editar</a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id=@p.ID_Paciente>Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
