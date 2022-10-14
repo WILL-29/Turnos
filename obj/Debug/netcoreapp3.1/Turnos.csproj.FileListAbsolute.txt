@@ -104,3 +104,7 @@ C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\
 C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\Especialidad\Delete.cshtml.g.cs
 C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\Especialidad\Create.cshtml.g.cs
 C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\Paciente\Index.cshtml.g.cs
+C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\Paciente\Create.cshtml.g.cs
+C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\Paciente\Details.cshtml.g.cs
+C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\Paciente\Edit.cshtml.g.cs
+C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\Paciente\Delete.cshtml.g.cs

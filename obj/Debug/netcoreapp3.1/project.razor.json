@@ -14412,8 +14412,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Views\\Paciente\\Delete.cshtml",
+      "TargetPath": "Views\\Paciente\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Views\\Paciente\\Create.cshtml",
+      "TargetPath": "Views\\Paciente\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Views\\Especialidad\\Create.cshtml",
       "TargetPath": "Views\\Especialidad\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Views\\Paciente\\Details.cshtml",
+      "TargetPath": "Views\\Paciente\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14449,6 +14464,11 @@
     {
       "FilePath": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Views\\Especialidad\\Index.cshtml",
       "TargetPath": "Views\\Especialidad\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Views\\Paciente\\Edit.cshtml",
+      "TargetPath": "Views\\Paciente\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {

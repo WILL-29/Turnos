@@ -8,17 +8,14 @@ namespace Turnos.Controllers
     public class PacienteController : Controller
     {
         private readonly TurnosContext _contexto;
-
         public PacienteController(TurnosContext Contexto)
         {
             _contexto = Contexto;
         }
-
         public async Task<IActionResult> Index()
         {
             return View(await _contexto.Pacientes.ToListAsync());
         }
-
         public async Task<IActionResult> Details(int? Id)
         {
             if (Id== null)
@@ -33,8 +30,6 @@ namespace Turnos.Controllers
 
             return View(paciente);
         }
-
-
         [HttpGet]
         public IActionResult Create()
         {
@@ -51,8 +46,7 @@ namespace Turnos.Controllers
             return RedirectToAction(nameof(Index));
             }
             return View();
-        }
-        
+        } 
         public async Task<IActionResult> Edit(int? Id)
         {
             if (Id==null)
@@ -62,11 +56,12 @@ namespace Turnos.Controllers
             var paciente = await _contexto.Pacientes.FirstOrDefaultAsync(p => p.ID_Paciente == Id);
             if (paciente == null)
             {
-                return View(paciente);
+                return NotFound();
             }
-            return View();
+            return View(paciente);
         }
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int Id, [Bind("ID_Paciente,Nombre,Apellido,Direccion,Telefono,Email")]Paciente paciente)
         {
             if(paciente.ID_Paciente != Id)
@@ -81,8 +76,6 @@ namespace Turnos.Controllers
             }
             return View(paciente);
         }
-
-
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id==null)
@@ -96,7 +89,6 @@ namespace Turnos.Controllers
             }
             return View();
         }
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? Id)

@@ -1,0 +1,15 @@
+@model Turnos.Models.Paciente
+
+<h3>¿Seguro que desea eliminar este registro?</h3>
+<div>
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.Nombre) @Html.DisplayFor(modelo => modelo.Nombre)
+        </dt>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="ID_Paciente">
+            <input type="submit" value="Eliminar"/> |
+            <a asp-action="Index">Cancelar</a>
+        </form>
+    </dl>
+</div>
