@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Turnos.Models;
 
 namespace Turnos.Migrations
 {
     [DbContext(typeof(TurnosContext))]
-    partial class TurnosConextModelSnapshot : ModelSnapshot
+    [Migration("20221116013832_MedicoEspecialidadCorregido")]
+    partial class MedicoEspecialidadCorregido
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -89,15 +91,15 @@ namespace Turnos.Migrations
 
             modelBuilder.Entity("Turnos.Models.MedicoEspecialidad", b =>
                 {
-                    b.Property<int>("ID_Medico")
+                    b.Property<int>("Id_Medico")
                         .HasColumnType("int");
 
-                    b.Property<int>("ID_Especialidad")
+                    b.Property<int>("Id_Especialidad")
                         .HasColumnType("int");
 
-                    b.HasKey("ID_Medico", "ID_Especialidad");
+                    b.HasKey("Id_Medico", "Id_Especialidad");
 
-                    b.HasIndex("ID_Especialidad");
+                    b.HasIndex("Id_Especialidad");
 
                     b.ToTable("MedicoEspecialidad");
                 });
@@ -148,13 +150,13 @@ namespace Turnos.Migrations
                 {
                     b.HasOne("Turnos.Models.Especialidad", "Especialidad")
                         .WithMany("MedicoEspecialidad")
-                        .HasForeignKey("ID_Especialidad")
+                        .HasForeignKey("Id_Especialidad")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Turnos.Models.Medico", "Medico")
                         .WithMany("MedicoEspecialidad")
-                        .HasForeignKey("ID_Medico")
+                        .HasForeignKey("Id_Medico")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

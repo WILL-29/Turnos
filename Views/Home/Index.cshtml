@@ -1,8 +1,61 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+ <div class="row">
+    <br>
+    <br>
+    <br>
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image center light-blue lighten-2">
+          <!-- Esto lo comentaremos porque no tendremos una imagen<img src="~/images/Trifuerza.png"> -->
+          <i class="material-icons large center white-text">star_rate</i>
+          <a asp-controller="Especialidad" asp-action="Create" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <span class="card-title">Especialidades</span>
+          <p>Aquí las especialidades pueden ser creadas, borradas y modificadas, estas luego pueden ser asignada a un médico.</p>
+        </div>
+        <div class="card-action blue-grey lighten-4">
+          <a asp-controller="Especialidad" asp-controller="Home" Class="black-text">Ver más...</a>  
+        </div>
+      </div>
+    </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image center amber lighten-2">
+          <!-- Esto lo comentaremos porque no tendremos una imagen<img src="~/images/Trifuerza.png"> -->
+          <i class="material-icons large center white-text">wc</i>
+          <a asp-controller="Medico" asp-action="Create" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <span class="card-title">Medicos</span>
+          <p>Aquí podemos registrar nuevos médicos, modificar sus datos y relacionarlos a alguna especialidad.</p>
+        </div>
+        <div class="card-action blue-grey lighten-4">
+          <a asp-controller="Medico" asp-controller="Home" Class="black-text">Ver más...</a>  
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image center green accent-3">
+          <!-- Esto lo comentaremos porque no tendremos una imagen<img src="~/images/Trifuerza.png"> -->
+          <i class="material-icons large center white-text">assignment_ind</i>
+          <a asp-controller="Paciente" asp-action="Create" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <span class="card-title">Pacientes</span>
+          <p>Aquí se podrán registrar pacientes, modificar y eliminar sus datos.</p>
+        </div>
+        <div class="card-action blue-grey lighten-4">
+          <a asp-controller="Paciente" asp-controller="Home" Class="black-text">Ver más...</a>  
+        </div>
+      </div>
+  </div>
+            
