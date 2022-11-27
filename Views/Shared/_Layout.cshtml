@@ -54,7 +54,9 @@
     @RenderSection("Scripts", required: false)
     <script>
         $(document).ready(function(){
+            $('.timepicker').timepicker();
             $('.sidenav').sidenav();
+            $('select').formSelect();
         })
     </script>
 </body>

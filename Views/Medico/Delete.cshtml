@@ -4,64 +4,56 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
+    <title>Eliminar</title>
 </head>
 <body>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Medico</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Apellido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Apellido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Direccion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Direccion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tel)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tel)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HorarioDesde)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HorarioDesde)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HorarioHasta)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HorarioHasta)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="ID_Medico" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+<h4>Médicos</h4>
+    <div>
+        <h3>¿Seguro que desea eliminar el siguiente médico?</h3>
+        <hr />
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title"><h5><b>@Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellido)</b></h5></span>
+                        <dl class="row">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Direccion): @Html.DisplayFor(model => model.Direccion)
+                            </dt>
+                            <hr>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Tel): @Html.DisplayFor(model => model.Tel)
+                            </dt>
+                            <hr>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Email): @Html.DisplayFor(model => model.Email)
+                            </dt>
+                            <hr>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.HorarioDesde): @Html.DisplayFor(model => model.HorarioDesde)
+                            </dt>
+                            <hr>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.HorarioHasta): @Html.DisplayFor(model => model.HorarioHasta)
+                            </dt>
+                            <hr>
+                        </dl>
+                    </div>
+                    <div class="card-action blue-grey darken-3">
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="ID_Medico"/>
+                            
+                            <input type="submit" value="Confirmar">
+                            
+                            <!--
+                            <a asp-action="Delete" asp-route-id="@Model.ID_Medico">Confirmar</a>
+                            -->
+                            <a asp-action="Index">Cancelar</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
 </body>
 </html>

@@ -40,17 +40,14 @@ namespace Turnos.Controllers
             {
                 return NotFound();
             }
-
             return View(medico);
         }
-
         // GET: Medico/Create
         public IActionResult Create()
         {
             ViewData["ListaEspecialidades"] = new SelectList(_context.Especialidades,"ID_Especialidad","Descripcion");
             return View();
         }
-
         // POST: Medico/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -81,14 +78,12 @@ namespace Turnos.Controllers
             {
                 return NotFound();
             }
-
             var medico = await _context.Medico.Where(m  => m.ID_Medico == id)
             .Include(me => me.MedicoEspecialidad).FirstOrDefaultAsync();
             if (medico == null)
             {
                 return NotFound();
             }
-
             ViewData["ListaEspecialidades"] = new SelectList( _context.Especialidades, "ID_Especialidad","Descripcion", medico.MedicoEspecialidad[0].ID_Especialidad);
             return View(medico);
         }

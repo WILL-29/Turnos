@@ -8,10 +8,10 @@
 </head>
 <body>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn-floating btn-large green accent-4"><i class="material-icons">person_add</i></a>
 </p>
-<table class="responsive-table highlight">
-    <thead>
+<table class="sa highlight z-depth-3">
+    <thead class="blue lighten-1">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nombre)
@@ -23,7 +23,10 @@
                 @Html.DisplayNameFor(model => model.Direccion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tel)
+                @*
+                @Html.DisplayNameFor(model => model.Tel) ---ESTO LO COMENTÉ PORQUE NO QUIERO QUE SE VEA EL NOMBRE DEL CAMPO, SINO LA PALABRA TELEFONO COMPLETA
+                *@
+                Telefono
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
@@ -37,7 +40,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="blue lighten-4">
 @foreach (var item in Model) {
         <tr>
             <td>
@@ -62,9 +65,9 @@
                 @Html.DisplayFor(modelItem => item.HorarioHasta)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID_Medico">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID_Medico">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID_Medico">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ID_Medico"><i class="material-icons">edit</i></a> |
+                <a asp-action="Details" asp-route-id="@item.ID_Medico"><i class="material-icons brown-text">more</i></a> |
+                <a asp-action="Delete" asp-route-id="@item.ID_Medico"><i class="material-icons  red-text">delete</i></a>
             </td>
         </tr>
 }
