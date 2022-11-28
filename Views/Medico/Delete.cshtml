@@ -41,11 +41,9 @@
                     </div>
                     <div class="card-action blue-grey darken-3">
                         <form asp-action="Delete">
-                            <input type="hidden" asp-for="ID_Medico"/>
-                            
-                            <input type="submit" value="Confirmar">
-                            
-                            <!--
+                            <input type="hidden" asp-for="ID_Medico"/>                            
+                            <input type="submit" value="Confirmar" class="waves-effect waves-light btn">                          
+                            <!-- Este anchor ref no funciona porque para usar un método tipo post se debe enviar a travez de un Form y un botón submit
                             <a asp-action="Delete" asp-route-id="@Model.ID_Medico">Confirmar</a>
                             -->
                             <a asp-action="Index">Cancelar</a>

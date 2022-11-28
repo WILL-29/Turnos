@@ -1,9 +1,8 @@
 @model IEnumerable<Turnos.Models.Paciente>
-
 <p>
     <a asp-action="Create" class="btn-floating btn-large green accent-4"><i class="material-icons">person_add</i></a>
 </p>
-<table class="responsive-table highlight z-depth-3">
+<table class="responsive-table highlight">
     <thead class="blue lighten-1">
         <tr>
             <th>
@@ -21,6 +20,9 @@
             <th>
                 @Html.DisplayNameFor(modelo => modelo.Email)
             </th>
+            <th>
+                <!-- Este th lo puse para que los botones se poangan debajo de esta columna -->
+            </th>
         </tr>
     </thead>
     <tbody class="blue lighten-4">
@@ -28,32 +30,25 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(cosa => p.Nombre);
+                    @Html.DisplayFor(cosa => p.Nombre)
                 </td>
                 <td>
-                    @Html.DisplayFor(cosa => p.Apellido);
+                    @Html.DisplayFor(cosa => p.Apellido)
                 </td>
                 <td>
-                    @Html.DisplayFor(cosa => p.Direccion);
+                    @Html.DisplayFor(cosa => p.Direccion)
                 </td>
                 <td>
-                    @Html.DisplayFor(cosa => p.Telefono);
+                    @Html.DisplayFor(cosa => p.Telefono)
                 </td>
                 <td>
-                    @Html.DisplayFor(cosa => p.Email);
+                    @Html.DisplayFor(cosa => p.Email)
                 </td>
                 <td>
-                    @Html.DisplayFor(cosa => p.Nombre);
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id=@p.ID_Paciente>Detalle</a>
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id=@p.ID_Paciente>Editar</a>
-                </td>
-                <td>
-                    <a asp-action="Delete" asp-route-id=@p.ID_Paciente>Eliminar</a>
-                </td>
+                <a asp-action="Edit" asp-route-id="@p.ID_Paciente"><i class="material-icons">edit</i></a> |
+                <a asp-action="Details" asp-route-id="@p.ID_Paciente"><i class="material-icons brown-text">more</i></a> |
+                <a asp-action="Delete" asp-route-id="@p.ID_Paciente"><i class="material-icons  red-text">delete</i></a>
+                </td>                
             </tr>
         }
     </tbody>
