@@ -85,9 +85,9 @@ namespace Turnos.Controllers
             var paciente = await _contexto.Pacientes.FirstOrDefaultAsync(p => p.ID_Paciente == Id);
             if (paciente == null)
             {
-                return View(paciente);
+                return NotFound();
             }
-            return View();
+            return View(paciente);
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

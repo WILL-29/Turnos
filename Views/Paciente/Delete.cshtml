@@ -1,15 +1,43 @@
 @model Turnos.Models.Paciente
-
-<h3>¿Seguro que desea eliminar este registro?</h3>
+<h4>Paciente</h4>
+<hr>
+<h5>¿Seguro que desea eliminar este registro?</h5>
 <div>
-    <dl>
-        <dt>
-            @Html.DisplayNameFor(modelo => modelo.Nombre) @Html.DisplayFor(modelo => modelo.Nombre)
-        </dt>
-        <form asp-action="Delete">
-            <input type="hidden" asp-for="ID_Paciente">
-            <input type="submit" value="Eliminar"/> |
-            <a asp-action="Index">Cancelar</a>
-        </form>
-    </dl>
+    <div>
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title"><h5><b>@Html.DisplayFor(modelo => modelo.Nombre) @Html.DisplayFor(modelo => modelo.Apellido)</h5></b></span>
+                        <dl>
+                            <dt>
+                                <b>@Html.DisplayNameFor(modelo => modelo.Direccion) :</b> @Html.DisplayFor(modelo => modelo.Direccion)
+                            </dt>
+                            <hr>
+                            <dt>
+                                <b>@Html.DisplayNameFor(modelo => modelo.Telefono) :</b> @Html.DisplayFor(modelo => modelo.Telefono)
+                            </dt>
+                            <hr>
+                            <dt>
+                                <b>@Html.DisplayNameFor(modelo => modelo.Email) :</b> @Html.DisplayFor(modelo => modelo.Email)
+                            </dt>
+                            <hr>
+                        </dl>
+                    </div>
+                    <div class="card-action blue-grey darken-3">
+                        <div class="">
+                            <form asp-action="Delete">
+                                <input type="hidden" asp-for="ID_Paciente">
+                                <input type="submit" value="Confirmar" class="waves-effect waves-light btn">
+                                <a asp-action="Index">Cancelar</a>
+                            </form>
+                        </div>
+                        <div class="">                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
 </div>
