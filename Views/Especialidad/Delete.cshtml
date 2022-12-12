@@ -8,8 +8,11 @@
             <span class="card-title">@Model.Descripcion</span>
             <div class="card-action">
                 <form asp-action="Delete">
-                    <input type="hidden" asp-for="ID_Especialidad"/>          
-                    <input type="submit" value="Eliminar" class="waves-effect waves-light btn"/>
+                    <input type="hidden" asp-for="ID_Especialidad"/>                              
+                    <button class="btn waves-effect waves-light" type="submit" name="action">eliminar
+                        <i class="material-icons right">send</i>
+                     </button>
+
                     <a asp-action="Index" class="waves-effect waves-light btn">Volver</a>
                 </form>
             </div>

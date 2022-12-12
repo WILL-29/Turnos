@@ -1,6 +1,6 @@
 @model Turnos.Models.Especialidad
 <h4>Especialidad</h4>
-<div>
+<div class="row">
     <form asp-controller="Especialidad" asp-action="Edit">
         <div asp-validation-summary="ModelOnly"></div>
         <input type="hidden" asp-for="ID_Especialidad"/>
@@ -10,8 +10,8 @@
             <span asp-validation-for="Descripcion"></span>
         </div>
         <div>
-            <input type="submit" value="Salvar">
-            <button type="button" onclick="location.href='@Url.Action("Index", "Especialidad")'">Cancelar</button>
+            <input type="submit" value="Guardar" class="waves-effect waves-light btn">
+            <button type="button" class="waves-effect waves-light btn" onclick="location.href='@Url.Action("Index", "Especialidad")'">Cancelar</button>
         </div>
     </form>
 </div>
