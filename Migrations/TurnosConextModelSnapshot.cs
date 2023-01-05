@@ -144,6 +144,34 @@ namespace Turnos.Migrations
                     b.ToTable("Pacientes");
                 });
 
+            modelBuilder.Entity("Turnos.Models.Turno", b =>
+                {
+                    b.Property<int>("ID_Turno")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("HoraFin")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("HoraInic")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ID_Medico")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ID_Paciente")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID_Turno");
+
+                    b.HasIndex("ID_Medico");
+
+                    b.HasIndex("ID_Paciente");
+
+                    b.ToTable("Turnos");
+                });
+
             modelBuilder.Entity("Turnos.Models.MedicoEspecialidad", b =>
                 {
                     b.HasOne("Turnos.Models.Especialidad", "Especialidad")
@@ -155,6 +183,21 @@ namespace Turnos.Migrations
                     b.HasOne("Turnos.Models.Medico", "Medico")
                         .WithMany("MedicoEspecialidad")
                         .HasForeignKey("ID_Medico")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Turnos.Models.Turno", b =>
+                {
+                    b.HasOne("Turnos.Models.Medico", "Medico")
+                        .WithMany("Turno")
+                        .HasForeignKey("ID_Medico")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Turnos.Models.Paciente", "Paciente")
+                        .WithMany("Turno")
+                        .HasForeignKey("ID_Paciente")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

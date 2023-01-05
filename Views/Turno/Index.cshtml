@@ -1,0 +1,33 @@
+@model Turnos.Models.Turno
+@{
+    ViewBag.Title = "Asignación de Turnos";
+}
+<div class="row">
+    <div class="col s6">
+        <label asp-for="ID_Medico"Médico></label>
+        <select asp-for="ID_Medico" asp-items="ViewBag.ID_Medico"></select>
+    </div>
+     <div class="col s6">
+        <label asp-for="ID_Paciente"Médico></label>
+        <select asp-for="ID_Paciente" asp-items="ViewBag.ID_Paciente"></select>
+    </div>
+</div>
+<br>
+<div id="CalendarioTurnos"></div>
+
+<link href="~/fullcalendar/fullcalendar.css" rel="stylesheet"/>
+<link href="~/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print"/>
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="~/fullcalendar/fullcalendar.min.js"></script>        
+    <script src="~/fullcalendar/locale/es.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#CalendarioTurnos').fullcalendar({
+
+            }) 
+
+        })
+    </script>
+}

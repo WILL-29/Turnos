@@ -1,17 +1,28 @@
 @model Turnos.Models.Especialidad
 <h4>Especialidad</h4>
-<div class="row">
+<div class="col s12 m6">
     <form asp-controller="Especialidad" asp-action="Edit">
         <div asp-validation-summary="ModelOnly"></div>
         <input type="hidden" asp-for="ID_Especialidad"/>
-        <div>
+        <div class="input-field col s12">
+            <i class="material-icons prefix">star_rate</i>
             <label asp-for="Descripcion">@*Aquí colocaría el label, como no puse nada, cojerá el nombre del campo*@</label>
             <input asp-for="Descripcion">
             <span asp-validation-for="Descripcion"></span>
         </div>
-        <div>
-            <input type="submit" value="Guardar" class="waves-effect waves-light btn">
-            <button type="button" class="waves-effect waves-light btn" onclick="location.href='@Url.Action("Index", "Especialidad")'">Cancelar</button>
+        <div class="row col s12 m6">
+            <div class="col s6">
+                <button class="waves-effect waves-light btn" type="submit">
+                    Guardar<i class="material-icons right">send</i>
+                </button>
+                <!-- <input type="submit" value="Guardar" class="waves-effect waves-light btn"> -->
+            </div>
+            <div class="col s6">
+                <button type="button" class="waves-effect waves-light btn" onclick="location.href='@Url.Action("Index", "Especialidad")'">
+                    Cancelar
+                    <i class="material-icons right">undo</i>
+                </button>
+            </div>
         </div>
     </form>
 </div>

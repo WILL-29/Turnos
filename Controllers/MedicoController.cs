@@ -21,7 +21,7 @@ namespace Turnos.Controllers
         // GET: Medico
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Medico.ToListAsync());
+            return View(await _context.Medicos.ToListAsync());
         }
 
         // GET: Medico/Details/5
@@ -32,7 +32,7 @@ namespace Turnos.Controllers
                 return NotFound();
             }
 
-            var medico = await _context.Medico
+            var medico = await _context.Medicos
                 .Where(m => m.ID_Medico == id)
                 .Include(me => me.MedicoEspecialidad)
                 .ThenInclude(e => e.Especialidad).FirstOrDefaultAsync();   
@@ -78,7 +78,7 @@ namespace Turnos.Controllers
             {
                 return NotFound();
             }
-            var medico = await _context.Medico.Where(m  => m.ID_Medico == id)
+            var medico = await _context.Medicos.Where(m  => m.ID_Medico == id)
             .Include(me => me.MedicoEspecialidad).FirstOrDefaultAsync();
             if (medico == null)
             {
@@ -143,7 +143,7 @@ namespace Turnos.Controllers
                 return NotFound();
             }
 
-            var medico = await _context.Medico
+            var medico = await _context.Medicos
                 .FirstOrDefaultAsync(m => m.ID_Medico == id);
             if (medico == null)
             {
@@ -162,8 +162,8 @@ namespace Turnos.Controllers
             _context.Remove(medicoEspecialidad);
             await _context.SaveChangesAsync();
 
-            var medico = await _context.Medico.FindAsync(id);
-            _context.Medico.Remove(medico);
+            var medico = await _context.Medicos.FindAsync(id);
+            _context.Medicos.Remove(medico);
             await _context.SaveChangesAsync();
 
           
@@ -173,7 +173,21 @@ namespace Turnos.Controllers
 
         private bool MedicoExists(int id)
         {
-            return _context.Medico.Any(e => e.ID_Medico == id);
+            return _context.Medicos.Any(e => e.ID_Medico == id);
         }
+
+        //método para traer HorarioDesde del médico
+        public string TraerHorarioDesde(int ID_Medico)
+        {
+            var HorarioAtencionDesde = _context.Medicos.Where(m => m.ID_Medico == ID_Medico).FirstOrDefault().HorarioDesde;
+            return HorarioAtencionDesde.Hour + ":" + HorarioAtencionDesde.Minute;
+        }
+        //método para traer HorarioHasta del médico
+        public string TraerHorarioHasta(int ID_Medico)
+        {
+            var HorarioAtencionHasta = _context.Medicos.Where(m => m.ID_Medico == ID_Medico).FirstOrDefault().HorarioHasta;
+            return HorarioAtencionHasta.Hour + ":" + HorarioAtencionHasta.Minute;
+        }
+
     }
 }

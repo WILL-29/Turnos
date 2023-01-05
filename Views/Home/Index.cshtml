@@ -1,62 +1,73 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
- <div class="row">
-    <br>
-    <br>
-    <br>
-    <div class="col s12 m4">
-      <div class="card">
-        <div class="card-image center light-blue lighten-2">
+</br>
+</br>
+<div class="container row">
+
+  <div class="col s6 m6">
+    <div class="card">
+      <div class="card-image center light-blue lighten-2">
           <!-- Esto lo comentaremos porque no tendremos una imagen<img src="~/images/Trifuerza.png"> -->
           <i class="material-icons large center white-text">star_rate</i>
           <a asp-controller="Especialidad" asp-action="Create" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-        </div>
-        <div class="card-content">
+      </div>
+      <div class="card-content">
           <span class="card-title">Especialidades</span>
           <p>Aquí las especialidades pueden ser creadas, borradas y modificadas, estas luego pueden ser asignada a un médico.</p>
-        </div>
-        <div class="card-action blue-grey darken-2">
+      </div>
+      <div class="card-action blue-grey darken-2">
           <a asp-controller="Especialidad" asp-controller="Home">Ver más...</a>  
-        </div>
+      </div>     
+    </div> 
+  </div>  
+
+  <div class="col s6 m6">
+    <div class="card">
+      <div class="card-image center amber lighten-2">       
+        <i class="material-icons large center white-text">wc</i>
+        <a asp-controller="Medico" asp-action="Create" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+      </div>
+      <div class="card-content">
+        <span class="card-title">Medicos</span>
+        <p>Aquí podemos registrar nuevos médicos, modificar sus datos y relacionarlos a alguna especialidad.</p> <br>
+      </div>
+      <div class="card-action blue-grey darken-2">
+        <a asp-controller="Medico" asp-controller="Home">Ver más...</a>  
       </div>
     </div>
+  </div><!-- Aquí es que haré mi salto de línea-->
 
-
-    <div class="col s12 m4">
-      <div class="card">
-        <div class="card-image center amber lighten-2">
-          <!-- Esto lo comentaremos porque no tendremos una imagen<img src="~/images/Trifuerza.png"> -->
-          <i class="material-icons large center white-text">wc</i>
-          <a asp-controller="Medico" asp-action="Create" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-        </div>
-        <div class="card-content">
-          <span class="card-title">Medicos</span>
-          <p>Aquí podemos registrar nuevos médicos, modificar sus datos y relacionarlos a alguna especialidad.</p>
-        </div>
-        <div class="card-action blue-grey darken-2">
-          <a asp-controller="Medico" asp-controller="Home">Ver más...</a>  
-        </div>
+  <div class="col s6 m6">
+    <div class="card">
+      <div class="card-image center green accent-3">          
+        <i class="material-icons large center white-text">assignment_ind</i>
+        <a asp-controller="Paciente" asp-action="Create" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
       </div>
-    </div>
-
-
-
-    <div class="col s12 m4">
-      <div class="card">
-        <div class="card-image center green accent-3">
-          <!-- Esto lo comentaremos porque no tendremos una imagen<img src="~/images/Trifuerza.png"> -->
-          <i class="material-icons large center white-text">assignment_ind</i>
-          <a asp-controller="Paciente" asp-action="Create" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-        </div>
-        <div class="card-content">
-          <span class="card-title">Pacientes</span>
-          <p>Aquí se podrán registrar pacientes, modificar y eliminar sus datos.</p>
-        </div>
-        <div class="card-action blue-grey darken-2">
-          <a asp-controller="Paciente" asp-controller="Home">Ver más...</a>
-          <!-- <a asp-controller="Paciente" asp-controller="Home" Class="black-text">Ver más...</a>  -->
-        </div>
+      <div class="card-content">
+        <span class="card-title">Pacientes</span>
+        <p>Aquí se podrán registrar pacientes, modificar y eliminar sus datos.</p>
       </div>
+      <div class="card-action blue-grey darken-2">
+        <a asp-controller="Paciente" asp-controller="Home">Ver más...</a>          
+      </div>
+    </div>  
   </div>
+
+  <div class="col s6 m6xd">
+    <div class="card">
+      <div class="card-image center brown lighten-1">
+        <i class="material-icons large center white-text">schedule</i>       
+      </div>
+      <div class="card-content">
+        <span class="card-title">Turnos</span>
+        <p>En este espacio podrás trabajar con los turnos, Asignarlos, modificarlos y eliminarlos de ser necesario.</p>
+      </div>
+      <div class="card-action blue-grey darken-2">
+        <a asp-controller="Turno" asp-controller="Index">Asignar turnos</a>   
+      </div>  
+    </div>         
+  </div>
+
+</div>
             

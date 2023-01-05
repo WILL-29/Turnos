@@ -39,15 +39,23 @@
                             <hr>
                         </dl>
                     </div>
-                    <div class="card-action blue-grey darken-3">
+                    <div class="card-action blue-grey darken-3 col s12">                                                
                         <form asp-action="Delete">
-                            <input type="hidden" asp-for="ID_Medico"/>                            
-                            <input type="submit" value="Confirmar" class="waves-effect waves-light btn">
-                            <!-- Este anchor ref no funciona porque para usar un método tipo post se debe enviar a travez de un Form y un botón submit
-                            <a asp-action="Delete" asp-route-id="@Model.ID_Medico">Confirmar</a>
-                            -->
-                            <a asp-action="Index">Cancelar</a>
-                        </form>
+                            <div class="col s6">                               
+                                    <!-- Este anchor ref no funciona porque para usar un método tipo post se debe enviar a travez de un Form y un botón submit(Input o button)
+                                    <a asp-action="Delete" asp-route-id="@Model.ID_Medico">Confirmar</a> -->
+                                    <button class="waves-effect waves-light btn" type="submit" asp-for="ID_Medico">
+                                        Confirmar
+                                        <i class="material-icons right">send</i>
+                                    </button>                                
+                            </div>                                                      
+                            <div class="col s6">
+                                <button asp-controller="Medico" asp-action="Index" class="waves-effect waves-light btn">
+                                    Cancelar
+                                    <i class="material-icons left">undo</i>
+                                </button>
+                            </div>   
+                        </form>                     
                     </div>
                 </div>
             </div>

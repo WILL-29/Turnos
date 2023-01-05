@@ -5,28 +5,28 @@
 <table class="sa responsive-table highlight z-depth-3">
     <thead class="blue lighten-1">
         <tr>
-            <th>
+            <th style="border-radius: 0;">
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
-            <th>
+            <th style="border-radius: 0;">
                 @Html.DisplayNameFor(model => model.Apellido)
             </th>
-            <th>
+            <th style="border-radius: 0;">
                 @Html.DisplayNameFor(model => model.Direccion)
             </th>
-            <th>
+            <th style="border-radius: 0;">
                 @Html.DisplayNameFor(model => model.Tel)
             </th>
-            <th>
+            <th style="border-radius: 0;">
                 @Html.DisplayNameFor(model => model.Email)
             </th>
-            <th>
+            <th style="border-radius: 0;">
                 @Html.DisplayNameFor(model => model.HorarioDesde)
             </th>
-            <th>
+            <th style="border-radius: 0;">
                 @Html.DisplayNameFor(model => model.HorarioHasta)
             </th>
-            <th>
+            <th style="border-radius: 0;">
                 Acciones
             </th>
         </tr>
@@ -34,28 +34,28 @@
     <tbody class="blue lighten-4">
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td style="border-radius: 0;">
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
-            <td>
+            <td style="border-radius: 0;">
                 @Html.DisplayFor(modelItem => item.Apellido)
             </td>
-            <td>
+            <td style="border-radius: 0;">
                 @Html.DisplayFor(modelItem => item.Direccion)
             </td>
-            <td>
+            <td style="border-radius: 0;">
                 @Html.DisplayFor(modelItem => item.Tel)
             </td>
-            <td>
+            <td style="border-radius: 0;">
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
-            <td>
+            <td style="border-radius: 0;">
                 @Html.DisplayFor(modelItem => item.HorarioDesde)
             </td>
-            <td>
+            <td style="border-radius: 0;">
                 @Html.DisplayFor(modelItem => item.HorarioHasta)
             </td>
-            <td>
+            <td style="border-radius: 0;">
                 <a asp-action="Edit" asp-route-id="@item.ID_Medico"><i class="material-icons">edit</i></a> |
                 <a asp-action="Details" asp-route-id="@item.ID_Medico"><i class="material-icons brown-text">more</i></a> |
                 <a asp-action="Delete" asp-route-id="@item.ID_Medico"><i class="material-icons  red-text">delete</i></a>
