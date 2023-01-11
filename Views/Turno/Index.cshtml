@@ -4,30 +4,113 @@
 }
 <div class="row">
     <div class="col s6">
-        <label asp-for="ID_Medico"Médico></label>
+        <label asp-for="ID_Medico">Médico</label>
         <select asp-for="ID_Medico" asp-items="ViewBag.ID_Medico"></select>
     </div>
-     <div class="col s6">
-        <label asp-for="ID_Paciente"Médico></label>
+    <div class="col s6">
+        <label asp-for="ID_Paciente">Paciente</label>
         <select asp-for="ID_Paciente" asp-items="ViewBag.ID_Paciente"></select>
-    </div>
+    </div>    
 </div>
 <br>
 <div id="CalendarioTurnos"></div>
-
 <link href="~/fullcalendar/fullcalendar.css" rel="stylesheet"/>
 <link href="~/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print"/>
-@section scripts{
+
+@section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="~/fullcalendar/fullcalendar.min.js"></script>        
     <script src="~/fullcalendar/locale/es.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function(){
+            var horarioDesde = "";
+            var horarioHasta = "";
+            var turnos = [];
 
-            $('#CalendarioTurnos').fullcalendar({
+            //aquí estamos ejecutando la función que creamos más abajo, y pasando el parámetro ID
+            ObtenerTurnosYActualizar($('#ID_Medico').val());
 
-            }) 
+            $('#ID_Medico').change(function(){
+                ObtenerTurnosYActualizar(this.value);
+            });
 
-        })
+            function ObtenerTurnosYActualizar(idMedico){
+                turnos = [];
+                $.ajax({
+                    type:"GET",
+                    url:"Turno/ObtenerTurnos",
+                    data:{'ID_Medico':idMedico}, //el nombre de la propiedad debe estar igual que en el modelo
+                    success: function(datos){
+                        $.each(datos, function(i, v){
+                            //El AJAX devuelve todas las propiedades con las iniciales en minúscula
+                            turnos.push({
+                                ID_Turno: v.iD_Turno,
+                                ID_Paciente: v.iD_Paciente,
+                                ID_Medico:v.iD_Medico,
+                                start: moment(v.horaInic),
+                                end: v.horaFin != null ? moment(v.horaInic): null,
+                            });                            
+                        })
+                        GenerarCalendario(turnos);
+                    },
+                    error: function(){
+                        alert('Error al obtener turnos.');
+                    }
+                })
+            };
+            function GenerarCalendario(turnos){
+                $.ajax({
+                    type: "GET",
+                    url:"Medico/TraerHorarioDesde",
+                    data: {ID_Medico:$('#ID_Medico').val() }, //aquí estamos creando un Json, el primer ID_Medico es la propiedad y $('#ID_Medico') nos indicar donde buscar el valor
+                    async:false,
+                    success: function(resultado){
+                        horarioDesde = resultado;
+                    },
+                    error: function(){
+                        alert('Error al traer el horario de atención desde del médico');
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url:"Medico/TraerHorarioHasta",
+                    data: {ID_Medico:$('#ID_Medico').val() },
+                    async:false,
+                    success: function(resultado){
+                        horarioHasta = resultado;
+                    },
+                    error: function(){
+                        alert('Error al traer el horario de atención desde del médico');
+                    }
+                });
+
+                //Hay que crear una condición para que si son HorarioInicio == HorarioFin entonces genere una alerta que diga que el médico no tiene horario habilitado              
+
+                //aquí lo que hacemos es destruir el calendario en caso de que ya exista
+                //lo hacemos por si ya tenemos el calendario cargado y cambiamos el médico
+                $('#CalendarioTurnos').fullCalendar('destroy');
+
+                $('#CalendarioTurnos').fullCalendar({
+                    contentHeight: 'auto',
+                    defaultDate: new Date(),
+                    slotLabelFormat: "HH:mm",
+                    defaultView: 'agendaWeek',
+                    header: {
+                                //center:'title' //no usaremos el Center por ahora
+                                left: 'prev, next, today',                            
+                                right: 'month, agendaWeek, agendaDay'
+                            },
+                    slotDuration:'00:30',
+                    nowIndicator:true,
+                    allDaySlot:false,
+                    selectable:true,
+                    eventLimit:true,
+                    minTime:horarioDesde,
+                    maxTime:horarioHasta,
+                    events:turnos
+                });
+            }
+        });
     </script>
 }
