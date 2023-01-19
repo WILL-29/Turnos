@@ -36,14 +36,14 @@
                     <span asp-validation-for="Email"></span>
                 </div>
             <div class="input-field col s6">
-                <i class="material-icons prefix">calendar_month</i>                
+                <i class="material-icons prefix">calendar_month</i>        
+                <label asp-for="HorarioDesde"></label>
                 <input type="text" class="timepicker">
-                <label asp-for="HorarioDesde" class="timepicker"></label>                
                 <span asp-validation-for="HorarioDesde"></span>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">calendar_month</i>                
-                <label asp-for="HorarioHasta" class="timepicker"></label>
+                <label asp-for="HorarioHasta"></label>
                 <input type="text" class="timepicker">
                 <span asp-validation-for="HorarioHasta"></span>
             </div>
