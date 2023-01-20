@@ -13,6 +13,24 @@
     </div>    
 </div>
 <br>
+<div id="ModalTurno" class="modal">
+    <div class="modal-content">
+        <h4>Turno</h4>
+        <form>
+            <div>
+                <label>Inicio</label>
+                <input type="text" id="txtFechaHoraInicio" readonly="readonly"/>
+                <label>Fin</label>
+                <input type="text" id="txtFechaHoraFin" readonly="readonly"/>
+            </div>
+        </form>    
+    </div>
+    <div class="modal-footer">
+        <a href="#" id="btnEliminar" class="modal-close waves-red btn-flat">Eliminar</a>
+        <a href="#" id="btnGuardar" class="modal-close waves-green btn-flat">Guardar</a>
+        <a href="#" id="btnCerrar" class="modal-close waves-grey btn-flat">Cerrar</a>
+    </div>
+</div>
 <div id="CalendarioTurnos"></div>
 <link href="~/fullcalendar/fullcalendar.css" rel="stylesheet"/>
 <link href="~/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print"/>
@@ -23,9 +41,12 @@
     <script src="~/fullcalendar/locale/es.js"></script>
     <script>
         $(document).ready(function(){
+            $('.modal').modal();
             var horarioDesde = "";
             var horarioHasta = "";
             var turnos = [];
+            var turnoSeleccionado = [];
+            //var datosDelTurno = [];
 
             //aquí estamos ejecutando la función que creamos más abajo, y pasando el parámetro ID
             ObtenerTurnosYActualizar($('#ID_Medico').val());
@@ -108,8 +129,60 @@
                     eventLimit:true,
                     minTime:horarioDesde,
                     maxTime:horarioHasta,
-                    events:turnos
+                    events:turnos,
+                    select: function(fechaHoraInicio, fechaHoraFin)
+                    {                        
+                        turnoSeleccionado = {
+                            iD_Turno: 0,
+                            start: fechaHoraInicio,
+                            end:fechaHoraFin
+                        }
+                        AbrirPopup();
+                    }
+
                 });
+            }
+
+            function AbrirPopup()
+            {
+                $('#txtFechaHoraInicio').val(turnoSeleccionado.start.format('DD/MM/YYYY HH:mm'));
+                $('#txtFechaHoraFin').val(turnoSeleccionado.end.format('DD/MM/YYYY HH:mm'));
+                if(turnoSeleccionado.iD_Turno == 0)
+                {
+                    $('#btnGuardar').show();
+                    $('#btnEliminar').hide();
+                }
+                else
+                {
+                    $('#btnGuardar').hide();
+                    $('#btnEliminar').show();
+                }
+                $('#ModalTurno').modal('open');
+            }
+            $('#btnGuardar').click(function(){
+                var datosDelTurno = {
+                    ID_Medico: $('#ID_Medico').val(),
+                    ID_Paciente: $('#ID_Paciente').val(),
+                    HoraInic: $('#txtFechaHoraInicio').val(),
+                    HoraFin: $('#txtFechaHoraFin').val()
+                }
+                GrabarTurno(datosDelTurno);
+            })
+            function GrabarTurno(dataTurno)
+            {
+                $.ajax({
+                    type:"POST",
+                    url:"Turno/GrabarTurno",
+                    data: {'turno':dataTurno},
+                    success: function(e){
+                        if(e.ok){
+                            ObtenerTurnosYActualizar($('#ID_Medico').val());
+                        }                       
+                    },                    
+                    error: function(){
+                        alert.show('Error al grabar turno');
+                    }
+                })
             }
         });
     </script>
