@@ -52,12 +52,13 @@ namespace Turnos.Models
             return Json(JsonResult);
         }
         //Eliminar un turno
-        public JsonResult EliminarTurno(Turno turno)
+        public JsonResult EliminarTurno(int ID_Turno)
         {
             var ok = false;
             try
             {
-                _contexto.Turnos.Remove(turno);
+                var TurnoEliminar = _contexto.Turnos.Where(t => t.ID_Turno == ID_Turno).FirstOrDefault();
+                _contexto.Turnos.Remove(TurnoEliminar);
                 _contexto.SaveChanges();
                 ok = true;
             }

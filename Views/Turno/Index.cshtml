@@ -69,7 +69,7 @@
                                 ID_Paciente: v.iD_Paciente,
                                 ID_Medico:v.iD_Medico,
                                 start: moment(v.horaInic),
-                                end: v.horaFin != null ? moment(v.horaInic): null,
+                                end: v.horaFin = null ? null: moment(v.horaFin)
                             });                            
                         })
                         GenerarCalendario(turnos);
@@ -115,7 +115,7 @@
                 $('#CalendarioTurnos').fullCalendar({
                     contentHeight: 'auto',
                     defaultDate: new Date(),
-                    slotLabelFormat: "HH:mm",
+                    slotLabelFormat: 'HH:mm',
                     defaultView: 'agendaWeek',
                     header: {
                                 //center:'title' //no usaremos el Center por ahora
@@ -130,7 +130,7 @@
                     minTime:horarioDesde,
                     maxTime:horarioHasta,
                     events:turnos,
-                    select: function(fechaHoraInicio, fechaHoraFin)
+                    select: function(fechaHoraInicio, fechaHoraFin) //el evento Select se dispara cuando selecionamos un turno vacío
                     {                        
                         turnoSeleccionado = {
                             iD_Turno: 0,
@@ -138,6 +138,12 @@
                             end:fechaHoraFin
                         }
                         AbrirPopup();
+                    },
+                    eventClick: function(turnoClickeado)//el evento eventClick se dispara cuando seleccionamos un turno que no está vacío, este evento recivirá
+                    //los datos del turno clickeado en el valor turnoClickeado
+                    {
+                        turnoSeleccionado = turnoClickeado;
+                        AbrirPopup();  
                     }
 
                 });
@@ -184,6 +190,27 @@
                     }
                 })
             }
+            $('#btnEliminar').click(function(){
+                if(confirm('¿Está seguro que desea eliminar este turno?'))
+                {
+                    $.ajax({
+                        type:"POST",
+                        url:"Turno/EliminarTurno",
+                        data: {'ID_Turno':turnoSeleccionado.ID_Turno},
+                        success: function(e){
+                            if(e.ok){
+                                ObtenerTurnosYActualizar($('#ID_Medico').val());
+                            }
+                        },
+                        error: function(){ 
+                            alert.show('Error al eliminar turno');
+                        }
+                    })
+                }
+            })
+            
+
+
         });
     </script>
 }
