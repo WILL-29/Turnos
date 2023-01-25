@@ -9,7 +9,7 @@
     </div>
     <div class="col s6">
         <label asp-for="ID_Paciente">Paciente</label>
-        <select asp-for="ID_Paciente" asp-items="ViewBag.ID_Paciente"></select>
+        <select id="ID_Paciente" asp-for="ID_Paciente" asp-items="ViewBag.ID_Paciente"></select>
     </div>    
 </div>
 <br>
@@ -22,6 +22,8 @@
                 <input type="text" id="txtFechaHoraInicio" readonly="readonly"/>
                 <label>Fin</label>
                 <input type="text" id="txtFechaHoraFin" readonly="readonly"/>
+                <label>Paciente</label>
+                <input type="text" id="txtPaciente" readonly="readonly">
             </div>
         </form>    
     </div>
@@ -69,7 +71,8 @@
                                 ID_Paciente: v.iD_Paciente,
                                 ID_Medico:v.iD_Medico,
                                 start: moment(v.horaInic),
-                                end: v.horaFin = null ? null: moment(v.horaFin)
+                                end: v.horaFin = null ? null: moment(v.horaFin),
+                                pacienteNombre: v.pacienteNombreCompleto
                             });                            
                         })
                         GenerarCalendario(turnos);
@@ -135,7 +138,7 @@
                         turnoSeleccionado = {
                             iD_Turno: 0,
                             start: fechaHoraInicio,
-                            end:fechaHoraFin
+                            end: fechaHoraFin                            
                         }
                         AbrirPopup();
                     },
@@ -148,20 +151,22 @@
 
                 });
             }
-
+            //con este método abrimos el modal rellenamos los textboxes
             function AbrirPopup()
             {
                 $('#txtFechaHoraInicio').val(turnoSeleccionado.start.format('DD/MM/YYYY HH:mm'));
-                $('#txtFechaHoraFin').val(turnoSeleccionado.end.format('DD/MM/YYYY HH:mm'));
+                $('#txtFechaHoraFin').val(turnoSeleccionado.end.format('DD/MM/YYYY HH:mm'));                
                 if(turnoSeleccionado.iD_Turno == 0)
                 {
                     $('#btnGuardar').show();
                     $('#btnEliminar').hide();
+                    $('#txtPaciente').val($('#ID_Paciente option:selected').text());
                 }
                 else
                 {
                     $('#btnGuardar').hide();
                     $('#btnEliminar').show();
+                    $('#txtPaciente').val(turnoSeleccionado.pacienteNombre);
                 }
                 $('#ModalTurno').modal('open');
             }

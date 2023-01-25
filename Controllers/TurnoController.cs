@@ -29,8 +29,17 @@ namespace Turnos.Models
         //Método para obtener Turnos de un médico
         public JsonResult ObtenerTurnos(int ID_Medico)
         {
-            var Turnos = new List<Turno>();
-            Turnos = _contexto.Turnos.Where(t => t.ID_Medico == ID_Medico).ToList();
+            var Turnos = _contexto.Turnos.Where(t => t.ID_Medico == ID_Medico)
+            .Select(t => new {
+                t.ID_Turno,
+                t.ID_Medico,
+                t.ID_Paciente,
+                t.HoraInic,
+                t.HoraFin,
+                PacienteNombreCompleto = t.Paciente.Nombre + " " + t.Paciente.Apellido })
+            .ToList();
+            //var Turnos = new List<Turno>();
+            //Turnos = _contexto.Turnos.Where(t => t.ID_Medico == ID_Medico).ToList();
             return Json(Turnos); //esto convierte automáticamente la colección de turnos en un Json
         }
 
