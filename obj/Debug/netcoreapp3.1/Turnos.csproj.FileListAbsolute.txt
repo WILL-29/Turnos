@@ -187,3 +187,4 @@ C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\
 C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\Medico\Edit.cshtml.g.cs
 C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\Medico\Index.cshtml.g.cs
 C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\Turno\Index.cshtml.g.cs
+C:\Users\WILL\Desktop\Sunshine\Udemy\Turnos\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs

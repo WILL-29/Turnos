@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Turnos.Models;
 
 namespace Turnos.Migrations
 {
     [DbContext(typeof(TurnosContext))]
-    partial class TurnosConextModelSnapshot : ModelSnapshot
+    [Migration("20230126002251_MigracionLoginn")]
+    partial class MigracionLoginn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,26 +37,6 @@ namespace Turnos.Migrations
                     b.HasKey("ID_Especialidad");
 
                     b.ToTable("Especialidades");
-                });
-
-            modelBuilder.Entity("Turnos.Models.Login", b =>
-                {
-                    b.Property<int>("ID_Login")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Usuario")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID_Login");
-
-                    b.ToTable("Login");
                 });
 
             modelBuilder.Entity("Turnos.Models.Medico", b =>

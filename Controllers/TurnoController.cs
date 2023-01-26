@@ -36,7 +36,7 @@ namespace Turnos.Models
                 t.ID_Paciente,
                 t.HoraInic,
                 t.HoraFin,
-                PacienteNombreCompleto = t.Paciente.Nombre + " " + t.Paciente.Apellido })
+                PacienteNombreCompleto = t.Paciente.Nombre + " " + t.Paciente.Apellido }) //como esta propiedad no existe en el objeto turno, le asignamos el valor
             .ToList();
             //var Turnos = new List<Turno>();
             //Turnos = _contexto.Turnos.Where(t => t.ID_Medico == ID_Medico).ToList();

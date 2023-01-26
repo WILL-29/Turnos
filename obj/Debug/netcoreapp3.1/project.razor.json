@@ -14477,6 +14477,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Views\\Login\\Index.cshtml",
+      "TargetPath": "Views\\Login\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\WILL\\Desktop\\Sunshine\\Udemy\\Turnos\\Views\\Especialidad\\Edit.cshtml",
       "TargetPath": "Views\\Especialidad\\Edit.cshtml",
       "FileKind": "mvc"

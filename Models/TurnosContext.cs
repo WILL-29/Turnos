@@ -13,6 +13,7 @@ namespace Turnos.Models
         public DbSet<Paciente> Pacientes {get; set;}
         public DbSet<MedicoEspecialidad> MedicoEspecialidad {get; set;}
         public DbSet<Turno> Turnos {get; set;}
+        public DbSet<Login> Login {get; set;}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Especialidad>(entidad => {
@@ -116,7 +117,15 @@ namespace Turnos.Models
 
             modelBuilder.Entity<Turno>().HasOne( x => x.Medico)
             .WithMany(p => p.Turno)
-            .HasForeignKey(p => p.ID_Medico);             
+            .HasForeignKey(p => p.ID_Medico);   
+
+            //Entidad Login
+            modelBuilder.Entity<Login>(entidad=>{
+                entidad.ToTable("Login");
+                entidad.HasKey(c => c.ID_Login);
+                entidad.Property(c => c.Usuario).IsRequired();
+                entidad.Property(c=>c.Password).IsRequired();
+            });
         }        
     }
 }
