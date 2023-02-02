@@ -24,7 +24,11 @@ namespace Turnos
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {   
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromSeconds(300);    //Aquí decimos que a los 300 segundo de inactividad se caiga la sesión
+                options.Cookie.HttpOnly = true;     // aquí indicamos que las cookies se almacenen solo en el navegador y no en el equipo
+            });
             services.AddControllersWithViews();
             services.AddDbContext<TurnosContext>(opciones => opciones.UseSqlServer(Configuration.GetConnectionString("TurnosContext")));
         }
@@ -49,11 +53,13 @@ namespace Turnos
 
             app.UseAuthorization();
 
+            app.UseSession();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=Index}/{id?}");
             });
         }
     }

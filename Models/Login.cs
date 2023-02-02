@@ -8,7 +8,7 @@ namespace Turnos.Models
         [Required (ErrorMessage = "Debe ingresar un usuario")]
         public string Usuario { get; set; }
         [Required (ErrorMessage = "Debe ingresar una contraseña")]
-        //[Display(Name = "Contraseña")]
+        [Display(Name = "Contraseña")]
         public string Password { get; set; }
     }
 }

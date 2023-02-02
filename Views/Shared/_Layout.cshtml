@@ -1,14 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    if (Context.Session.GetString("usuario") == null)
+    {
+        Context.Response.Redirect("/Login");
+    }
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Turnos</title>
+  
+  
+    <!-- Estas son las librerías de Materialize ->
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <link rel="stylesheet" href="~/css/site.css" />
-
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="~/css/materialize.min.css"  media="screen,projection"/>
 
@@ -25,6 +35,7 @@
                 <li><a asp-controller="Paciente" asp-action="Index">Paciente</a></li>
                 <li><a asp-controller="Medico" asp-action="Index">Medico</a></li>
                 <li><a asp-controller="Turno" asp-action="Index">Turno</a></li>                
+                <li><a asp-controller="Login" asp-action="Logout">Cerrar Sesión</a></li>       
             </ul>
             </div>
         </nav>
@@ -35,6 +46,7 @@
                 <li><a asp-controller="Paciente" asp-action="Index">Paciente</a></li>
                 <li><a asp-controller="Medico" asp-action="Index">Medico</a></li>
                 <li><a asp-controller="Turno" asp-action="Index">Turno</a></li>  
+                <li><a asp-controller="Login" asp-action="Logout">Cerrar Sesión</a></li>     
         </ul>
     </header>
     <div class="container">
