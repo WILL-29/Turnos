@@ -1,6 +1,7 @@
 ###################
 # compiled source #
 ###################
+appsettings.Production.json
 *.com
 *.class
 *.dll
