@@ -1,4 +1,5 @@
 @model Turnos.Models.Turno
+@Html.AntiForgeryToken()
 @{
     ViewBag.Title = "Asignación de Turnos";
 }
@@ -183,6 +184,7 @@
             {
                 $.ajax({
                     type:"POST",
+                    headers: {'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()},
                     url:"Turno/GrabarTurno",
                     data: {'turno':dataTurno},
                     success: function(e){
@@ -200,6 +202,7 @@
                 {
                     $.ajax({
                         type:"POST",
+                        headers: {'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()},
                         url:"Turno/EliminarTurno",
                         data: {'ID_Turno':turnoSeleccionado.ID_Turno},
                         success: function(e){

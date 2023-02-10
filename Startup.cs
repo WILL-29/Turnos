@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Turnos.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Turnos
 {
@@ -29,7 +30,11 @@ namespace Turnos
                 options.IdleTimeout = TimeSpan.FromSeconds(300);    //Aquí decimos que a los 300 segundo de inactividad se caiga la sesión
                 options.Cookie.HttpOnly = true;     // aquí indicamos que las cookies se almacenen solo en el navegador y no en el equipo
             });
-            services.AddControllersWithViews();
+           
+            services.AddControllersWithViews(options => 
+                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute())
+            );
+
             services.AddDbContext<TurnosContext>(opciones => opciones.UseSqlServer(Configuration.GetConnectionString("TurnosContext")));
         }
 
@@ -40,7 +45,7 @@ namespace Turnos
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
+            if (env.IsProduction())
             {
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
